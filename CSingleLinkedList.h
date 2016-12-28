@@ -2,28 +2,34 @@
 
 // node
 
-<template class T>
-typedef struct tnode{
+//template<class T>
+//struct tnode;
+// do not need to typedef structs in C++
 
-T data;
-struct tnode * next;
+template<class T>
+struct NODE{
 
-}NODE;
+  T data;
+  NODE<T> * next;
+
+};
 
 /*
-single linked list
-*/
-<template class T>
-class CSingleLinkedList<T>
+   single linked list
+ */
+template <class T>
+class CSingleLinkedList
 {
-private: 
-    NODE<T> * root;
+  public: 
+	NODE<T> * root;
 
-public:
-    CSingleLinkedList<T>();
+  public:
+	CSingleLinkedList();
 
-public: // IDynamicSet
-    NODE<T> * Insert(T val);
-    T Delete(NODE<T> * node);
-    int Print();
+  public: // IDynamicSet
+	NODE<T> * Insert(T const & val);
+	T * Delete(NODE<T> * node);
+	int Print()const;
+
+	NODE<T> * Search(T val)const;
 };
